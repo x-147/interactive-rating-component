@@ -2,6 +2,8 @@
 
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
+import cn from 'classnames'
+import styles from './Home.module.css'
 
 export default function Home() {
   const [selection, saveSelection] = useState('')
@@ -19,60 +21,66 @@ export default function Home() {
   }
 
   return (
-    <div className="container">
-      <div className="star-container">
-        <img src="./icon-star.svg" alt="icon-star" />
+    <div className={styles.container}>
+      <div className={styles['star-container']}>
+        <img
+          className={styles['icon-star']}
+          src="./icon-star.svg"
+          alt="icon-star"
+        />
       </div>
-      <div className="title">How did we do?</div>
-      <p className="comment">
+      <div className={styles.title}>How did we do?</div>
+      <p className={styles.comment}>
         Please let us know how we did with your support request. All feedback is
         appreciated to help us improve our offering!
       </p>
-      <div className="round-button-container">
+      <div className={styles['round-button-container']}>
         {/* ideally we want to iterate through an array and pass values */}
         {/* for a small list, hardcoding is ok */}
         <div
-          className={`number-container ${
-            selection.includes('1') ? 'selected' : ''
-          }`}
+          className={cn(styles['number-container'], {
+            [styles.selected]: selection.includes('1'),
+          })}
           onClick={handleOnClick}
         >
           1
         </div>
         <div
-          className={`number-container ${
-            selection.includes('2') ? 'selected' : ''
-          }`}
+          className={cn(styles['number-container'], {
+            [styles.selected]: selection.includes('2'),
+          })}
           onClick={handleOnClick}
         >
           2
         </div>
         <div
-          className={`number-container ${
-            selection.includes('3') ? 'selected' : ''
-          }`}
+          className={cn(styles['number-container'], {
+            [styles.selected]: selection.includes('3'),
+          })}
           onClick={handleOnClick}
         >
           3
         </div>
         <div
-          className={`number-container ${
-            selection.includes('4') ? 'selected' : ''
-          }`}
+          className={cn(styles['number-container'], {
+            [styles.selected]: selection.includes('4'),
+          })}
           onClick={handleOnClick}
         >
           4
         </div>
         <div
-          className={`number-container ${
-            selection.includes('5') ? 'selected' : ''
-          }`}
+          className={cn(styles['number-container'], {
+            [styles.selected]: selection.includes('5'),
+          })}
           onClick={handleOnClick}
         >
           5
         </div>
       </div>
-      <button onClick={handleOnSubmit}>Submit</button>
+      <button className={styles['submit-button']} onClick={handleOnSubmit}>
+        Submit
+      </button>
     </div>
   )
 }

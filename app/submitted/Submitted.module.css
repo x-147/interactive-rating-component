@@ -1,0 +1,45 @@
+.container {
+  height: 320px;
+  width: 320px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 25px;
+  gap: 0;
+  box-sizing: border-box;
+  background-image: linear-gradient(hsl(213, 19%, 18%) 70%, hsl(216, 12%, 8%));
+  background-color: hsl(216, 12%, 8%);
+}
+
+.thank-you-img {
+  width: 125px;
+  height: 100px;
+  object-fit: contain;
+}
+
+.choice {
+  background-color: hsl(213, 19%, 25%);
+  color: hsl(25, 97%, 53%);
+  font-size: smaller;
+  opacity: 0.8;
+  padding: 5px 10px 5px 10px;
+  border-radius: 10px;
+  width: 50%;
+  text-align: center;
+}
+
+.message {
+  color: white;
+  font-size: x-large;
+  font-weight: 500;
+}
+
+.comment {
+  font-size: small;
+  text-align: center;
+  line-height: 1rem;
+  color: hsl(217, 12%, 63%);
+  opacity: 0.6;
+}
