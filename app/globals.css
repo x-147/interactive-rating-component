@@ -112,3 +112,9 @@ button:hover {
   opacity: 1;
   cursor: pointer;
 }
+
+.selected {
+  background-color: white;
+  opacity: 1;
+  color: hsl(213, 19%, 25%);
+}

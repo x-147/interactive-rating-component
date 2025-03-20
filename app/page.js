@@ -1,24 +1,21 @@
 'use client'
 
 import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 
 export default function Home() {
-  const [selection, saveSelection] = useState([])
+  const [selection, saveSelection] = useState('')
+  const router = useRouter()
 
   const handleOnClick = (e) => {
-    console.log('selection: ', selection)
-    const value = e.target.textContent
-    if (selection.includes(value)) {
-      const newSelection = selection.filter((val) => val !== value)
-      saveSelection(() => newSelection)
-    } else {
-      saveSelection(() => selection.concat(value))
-    }
+    saveSelection([e.target.textContent])
   }
 
   const handleOnSubmit = () => {
-    console.log('selection: ', selection)
-    saveSelection([])
+    router.push(`/submitted?data=${selection}`)
+
+    // reset state
+    saveSelection('')
   }
 
   return (
@@ -32,19 +29,46 @@ export default function Home() {
         appreciated to help us improve our offering!
       </p>
       <div className="round-button-container">
-        <div className="number-container" onClick={handleOnClick}>
+        {/* ideally we want to iterate through an array and pass values */}
+        {/* for a small list, hardcoding is ok */}
+        <div
+          className={`number-container ${
+            selection.includes('1') ? 'selected' : ''
+          }`}
+          onClick={handleOnClick}
+        >
           1
         </div>
-        <div className="number-container" onClick={handleOnClick}>
+        <div
+          className={`number-container ${
+            selection.includes('2') ? 'selected' : ''
+          }`}
+          onClick={handleOnClick}
+        >
           2
         </div>
-        <div className="number-container" onClick={handleOnClick}>
+        <div
+          className={`number-container ${
+            selection.includes('3') ? 'selected' : ''
+          }`}
+          onClick={handleOnClick}
+        >
           3
         </div>
-        <div className="number-container" onClick={handleOnClick}>
+        <div
+          className={`number-container ${
+            selection.includes('4') ? 'selected' : ''
+          }`}
+          onClick={handleOnClick}
+        >
           4
         </div>
-        <div className="number-container" onClick={handleOnClick}>
+        <div
+          className={`number-container ${
+            selection.includes('5') ? 'selected' : ''
+          }`}
+          onClick={handleOnClick}
+        >
           5
         </div>
       </div>
