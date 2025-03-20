@@ -1,9 +1,10 @@
 'use client'
 
+import { Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
 import styles from './Submitted.module.css'
 
-export default function Submitted() {
+function SubmittedContent() {
   const searchParams = useSearchParams()
   return (
     <div className={styles.container}>
@@ -21,5 +22,13 @@ export default function Submitted() {
         more support don't hesitate to get in touch!
       </div>
     </div>
+  )
+}
+
+export default function Submitted() {
+  return (
+    <Suspense fallback={<div>Loading ...</div>}>
+      <SubmittedContent />
+    </Suspense>
   )
 }
